@@ -92,7 +92,8 @@ class ui:
             self.running = False
     
     def drawBoard(self):
-        pygame.draw.circle(self.surface,"red", (0,0), 3 )
+        pass
+
 
     def loop(self):
         # creating chess lines 
