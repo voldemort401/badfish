@@ -57,7 +57,7 @@ class en:
 
 class ui:
     def __init__(self):
-        self.size = self.w, self.h = (600,500)
+        self.size = self.w, self.h = (600,600)
         self.clock = pygame.time.Clock()
     def oninit(self):
         self.surface = pygame.display.set_mode(self.size)
@@ -102,6 +102,7 @@ class ui:
         
         self.board        = pygame.image.load("res/board.png").convert_alpha()
         self.board        = pygame.transform.scale(self.board, (self.w,self.h))
+        
 
     def iclock(self):
         pygame.display.flip()
@@ -125,15 +126,15 @@ class ui:
         self.surface.blit(self.knight_black, (450,0))
         self.surface.blit(self.bishop_black, (375,0))
 
-        self.surface.blit(self.pawn_white, (0,  65*5.65))
-        self.surface.blit(self.pawn_white, (75, 65*5.65))
-        self.surface.blit(self.pawn_white, (150,65*5.65))
-        self.surface.blit(self.pawn_white, (225,65*5.65))
-        self.surface.blit(self.pawn_white, (300,65*5.65)) 
-        self.surface.blit(self.pawn_white, (525,65*5.65))
-        self.surface.blit(self.pawn_white, (450,65*5.65))
-        self.surface.blit(self.pawn_white, (375,65*5.65))
-      
+        self.surface.blit(self.pawn_white, (0,  65*6.65))
+        self.surface.blit(self.pawn_white, (75, 65*6.65))
+        self.surface.blit(self.pawn_white, (150,65*6.65))
+        self.surface.blit(self.pawn_white, (225,65*6.65))
+        self.surface.blit(self.pawn_white, (300,65*6.65)) 
+        self.surface.blit(self.pawn_white, (525,65*6.65))
+        self.surface.blit(self.pawn_white, (450,65*6.65))
+        self.surface.blit(self.pawn_white, (375,65*6.65))
+    
         self.surface.blit(self.pawn_black, (0,  65))
         self.surface.blit(self.pawn_black, (75, 65))
         self.surface.blit(self.pawn_black, (150,65))
@@ -144,16 +145,30 @@ class ui:
         self.surface.blit(self.pawn_black, (375,65))
 
 
-        self.surface.blit(self.rook_white, (0,65*6.55))
-        self.surface.blit(self.knight_white, (75, 65*6.55))
-        self.surface.blit(self.bishop_white, (150,65*6.55))
-        self.surface.blit(self.queen_white,  (225,65*6.55))
-        self.surface.blit(self.king_white,   (300,65*6.55)) 
-        self.surface.blit(self.rook_white,   (525,65*6.55))
-        self.surface.blit(self.knight_white, (450,65*6.55))
-        self.surface.blit(self.bishop_white, (375,65*6.55))
+        self.surface.blit(self.rook_white, (0,65*7.85))
+        self.surface.blit(self.knight_white, (75, 65*7.85))
+        self.surface.blit(self.bishop_white, (150,65*7.85))
+        self.surface.blit(self.queen_white,  (225,65*7.85))
+        self.surface.blit(self.king_white,   (300,65*7.85)) 
+        self.surface.blit(self.rook_white,   (525,65*7.85))
+        self.surface.blit(self.knight_white, (450,65*7.85))
+        self.surface.blit(self.bishop_white, (375,65*7.85))
 
-
+        # TODO: make this array backed i'll do it tmrw 
+        square = pygame.Rect(20,20,8,8)
+        pygame.draw.rect(self.surface, "green", square)
+        j = 0
+        i = 0
+        while (j != 64):
+            i+=1
+            square.x += 72
+            if (i == 8):
+                i = 0
+                square.y +=72
+                square.x -= 72*8
+            j+=1
+            pygame.draw.rect(self.surface, "green", square)
+        
 
     def loop(self):
         # creating chess lines 
