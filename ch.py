@@ -154,7 +154,7 @@ class ui:
         self.surface.blit(self.knight_white, (450,65*7.85))
         self.surface.blit(self.bishop_white, (375,65*7.85))
 
-        # TODO: make this array backed i'll do it tmrw 
+        # TODO: make this array backed i'll do it tmrw. 
         square = pygame.Rect(20,20,8,8)
         pygame.draw.rect(self.surface, "green", square)
         j = 0
